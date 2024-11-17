@@ -1,0 +1,30 @@
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Maven build directory
+target/
+
+# Gradle build directory
+.gradle/
+build/
+
+# Java class files
+*.class
+
+# Java dependency manager caches
+/.m2/
+.gradle/
+
+# Log files
+*.log
+
+# Environment files
+.env
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Selenium WebDriver logs
+webdriver-log.txt
