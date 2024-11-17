@@ -49,5 +49,4 @@ public class SearchResultsPage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", visibleElement);
     }
-
 }

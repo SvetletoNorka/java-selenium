@@ -26,7 +26,7 @@ public class HomePageTest {
         searchResultsPage.openFirstCar();
 
         String phoneNumber = searchResultsPage.getPhoneNumber();
-        System.out.println("Телефонният номер на колата е: " + phoneNumber);
+        System.out.println("The phone number is: " + phoneNumber.split("\n")[0].trim());
     }
 
     public void tearDown() {
