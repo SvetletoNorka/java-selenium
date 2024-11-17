@@ -20,13 +20,12 @@ public class HomePageTest {
         homePage.selectBrand("VW");
         homePage.selectModel("Golf");
         homePage.selectOtherOptions();
-
         homePage.clickSearchButton();
-
         searchResultsPage.openFirstCar();
 
-        String phoneNumber = searchResultsPage.getPhoneNumber();
-        System.out.println("The phone number is: " + phoneNumber.split("\n")[0].trim());
+        String phoneNumber = searchResultsPage.getPhoneNumber().split("\n")[0].trim();
+        System.out.println("Phone number: " + phoneNumber);
+        LogHelper.log("Phone number: " + phoneNumber);
     }
 
     public void tearDown() {
