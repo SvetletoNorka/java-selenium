@@ -6,6 +6,7 @@ import java.util.List;
 import java.time.Duration;
 
 public class SearchResultsPage {
+
     private WebDriver driver;
 
     private By topCars = By.xpath("//div[@class='item TOP ']");
