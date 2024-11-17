@@ -1,6 +1,8 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SearchResultsPage {
     private WebDriver driver;
@@ -12,9 +14,28 @@ public class SearchResultsPage {
         this.driver = driver;
     }
 
+  //  public void openFirstCar() {
+//        WebElement firstCar = driver.findElement(firstTopCar);
+//        firstCar.click();
+//    }
+
     public void openFirstCar() {
-        WebElement firstCar = driver.findElement(firstTopCar);
-        firstCar.click();
+        // Изчакване за елемента да бъде видим и кликаем
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement firstCar = wait.until(ExpectedConditions.visibilityOfElementLocated(firstTopCar)); // чака, докато елементът стане видим
+
+        // Скролиране до елемента
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", firstCar);
+
+        // Изчакване за кликаемост
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(firstCar)); // чака, докато елементът стане кликаем
+            firstCar.click();
+        } catch (TimeoutException e) {
+            System.out.println("Елементът не стана кликаем в рамките на зададеното време.");
+            e.printStackTrace();
+        }
     }
 
     public String getPhoneNumber() {
