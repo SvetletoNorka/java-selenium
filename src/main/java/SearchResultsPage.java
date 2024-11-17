@@ -1,12 +1,14 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.List;
 
 import java.time.Duration;
 
 public class SearchResultsPage {
     private WebDriver driver;
 
+    private By topCars = By.xpath("//div[@class='item TOP ']");
     private By firstTopCar = By.xpath("(//div[@class='item TOP ']//a[@class='image saveSlink']//img[@class='pic'])[1]");
     private By phoneNumber = By.xpath("(//div[@class='phone'])[3]");
 
@@ -14,6 +16,11 @@ public class SearchResultsPage {
         this.driver = driver;
     }
 
+    public int countTopItems() {
+        waitForVisibilityOfElement(topCars);
+        List<WebElement> topItems = driver.findElements(topCars);
+        return topItems.size();
+    }
     public void openFirstCar() {
         scrollToElement(firstTopCar);
         waitForElementToBeClickableAndClick(firstTopCar, 10);

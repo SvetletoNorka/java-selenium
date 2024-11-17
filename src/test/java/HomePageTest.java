@@ -27,6 +27,11 @@ public class HomePageTest {
         homePage.selectModel("Golf");
         homePage.selectOtherOptions();
         homePage.clickSearchButton();
+
+        int topCars = searchResultsPage.countTopItems();
+        System.out.println("Top Cars: " + topCars);
+        LogHelper.log("Top Cars: " + topCars);
+
         searchResultsPage.openFirstCar();
 
         String phoneNumber = searchResultsPage.getPhoneNumber().split("\n")[0].trim();
